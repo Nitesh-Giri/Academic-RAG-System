@@ -1,5 +1,7 @@
 # Academic RAG System
 
+<h4>Here you go: <a href="https://academic-rag-system.onrender.com/" target="_blank" rel="noopener noreferrer">Visit site</a></h4>
+
 An end‑to‑end academic research assistant that ingests research papers, extracts citations and metadata, builds a citation network, computes research trends, and provides an AI-powered RAG (Retrieval-Augmented Generation) interface to query your collection.
 
 ## Features
