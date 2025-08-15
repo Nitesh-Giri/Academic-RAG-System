@@ -44,7 +44,7 @@ cd backend
 npm install
 npm run dev   # or: npm start
 ```
-The API will start at `http://localhost:8008`.
+The API will start at `https://academic-rag-system.onrender.com`.
 
 ## Frontend Setup
 1) Install and run the frontend:
@@ -56,11 +56,11 @@ npm run dev
 The app will start via Vite (usually `http://localhost:5173`).
 
 Frontend uses `frontend/src/services/api.js`:
-- In development it points to `http://localhost:8008/api`
+- In development it points to `https://academic-rag-system.onrender.com/api`
 - In production it uses `/api`
 
 ## Core API Endpoints
-Base URL: `http://localhost:8008/api`
+Base URL: `https://academic-rag-system.onrender.com/api`
 
 - Papers
   - `GET /papers` – list papers
@@ -85,13 +85,13 @@ Base URL: `http://localhost:8008/api`
 
 ### Example: upload a PDF via cURL
 ```
-curl -X POST http://localhost:8008/api/upload \
+curl -X POST https://academic-rag-system.onrender.com/api/upload \
   -F "paper=@/absolute/path/to/paper.pdf"
 ```
 
 ### Example: upload by URL
 ```
-curl -X POST http://localhost:8008/api/upload/url \
+curl -X POST https://academic-rag-system.onrender.com/api/upload/url \
   -H "Content-Type: application/json" \
   -d '{"url": "https://arxiv.org/pdf/1234.56789.pdf", "metadata": {"categories": ["NLP"], "keywords": ["LLM"]}}'
 ```
@@ -111,7 +111,7 @@ curl -X POST http://localhost:8008/api/upload/url \
 
 ## Troubleshooting
 - MongoDB connection errors: verify `MONGODB_URI` and that MongoDB is running/reachable
-- CORS/Network: ensure frontend uses `http://localhost:8008/api` in dev (default in `api.js`)
+- CORS/Network: ensure frontend uses `https://academic-rag-system.onrender.com/api` in dev (default in `api.js`)
 - Upload fails: PDF may be corrupted/password-protected; check server logs for details
 - RAG errors: ensure `GEMINI_API_KEY` is set; requests may be rate-limited
 
