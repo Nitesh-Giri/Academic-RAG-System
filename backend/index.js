@@ -9,6 +9,7 @@ import trendsRoutes from "./routes/trends.js"
 import uploadRoutes from "./routes/upload.js"
 import ragRoutes from "./routes/rag.js"
 import networkRoutes from "./routes/network.js"
+import path from "path"
 
 // Load environment variables
 dotenv.config()
@@ -24,6 +25,9 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }))
 // Connect to database
 connectDB()
 
+const _dirname = path.resolve()
+
+
 // Routes
 app.use("/api/papers", paperRoutes)
 app.use("/api/citations", citationRoutes)
@@ -32,6 +36,11 @@ app.use("/api/trends", trendsRoutes)
 app.use("/api/upload", uploadRoutes)
 app.use("/api/rag", ragRoutes)
 app.use("/api/network", networkRoutes)
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

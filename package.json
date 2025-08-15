@@ -5,10 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "jest",
-    "setup-db": "node scripts/setup-database.js"
+    "dev": "nodemon backend/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "nodemon backend/index.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
